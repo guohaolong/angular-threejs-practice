@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import * as OrbitControls from 'three-orbitcontrols';
 import * as Stats from 'stats-js';
 import { Wall } from 'src/app/objects/wall';
+import { DiningStool } from 'src/app/objects/dining-stool';
 
 @Component({
   selector: 'app-house-view',
@@ -301,7 +302,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
       opacity: 0.8
     });
     const teaTableGeometry = new THREE.BoxGeometry(0.6, 0.2, 1.2);
-    textureLoader.load('../../../assets/images/glass.png', (map: any) => {
+    textureLoader.load('../../../assets/images/tea-table-skin.png', (map: any) => {
       map.wrapS = THREE.RepeatWrapping;
       map.wrapT = THREE.ClampToEdgeWrapping;
       map.anisotropy = 4;
@@ -314,7 +315,6 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     teaTableMesh.position.y = 0.1;
     teaTableMesh.position.z = -2.8;
     this.scene.add(teaTableMesh);
-
 
     // 餐厅背景墙
     const diningBgMaterial = new THREE.MeshStandardMaterial({
@@ -352,7 +352,91 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     fridgeeDoorMesh.position.y = 0.4;
     fridgeeDoorMesh.position.z = 1;
     this.scene.add(fridgeeDoorMesh);
+    
+    // 餐桌
+    const diningTableMaterial = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+    });
+    const diningTableGeometry = new THREE.BoxGeometry(1, 0.4, 0.5);
+    const diningTableMesh = new THREE.Mesh(diningTableGeometry, diningTableMaterial);
+    diningTableMesh.position.x = 1.65;
+    diningTableMesh.position.y = 0.2;
+    diningTableMesh.position.z = 2;
+    this.scene.add(diningTableMesh);
 
+    const diningTableTopMaterial = new THREE.MeshStandardMaterial();
+    const diningTableTopGeometry = new THREE.BoxGeometry(1, 0.01, 0.5);
+    textureLoader.load('../../../assets/images/dining-table-skin.jpg', (map: any) => {
+      map.wrapS = THREE.RepeatWrapping;
+      map.wrapT = THREE.RepeatWrapping;
+      map.anisotropy = 4;
+      map.repeat.set(1, 1);
+      diningTableTopMaterial.map = map;
+      diningTableTopMaterial.needsUpdate = true;
+    });
+    const diningTableTopMesh = new THREE.Mesh(diningTableTopGeometry, diningTableTopMaterial);
+    diningTableTopMesh.position.x = 1.65;
+    diningTableTopMesh.position.y = 0.4;
+    diningTableTopMesh.position.z = 2;
+    this.scene.add(diningTableTopMesh);
+
+    // 餐凳1
+    const diningStool1Mesh = new DiningStool({ width: 0.2, height: 0.25, depth: 0.2, x: 1.4, y: 0.125, z: 1.6 });
+    this.scene.add(diningStool1Mesh.mesh);
+    this.scene.add(diningStool1Mesh.topMesh);
+
+    // 餐凳2
+    const diningStool2Mesh = new DiningStool({ width: 0.2, height: 0.25, depth: 0.2, x: 1.9, y: 0.125, z: 1.6 });
+    this.scene.add(diningStool2Mesh.mesh);
+    this.scene.add(diningStool2Mesh.topMesh);
+
+    // 餐凳3
+    const diningStool3Mesh = new DiningStool({ width: 0.2, height: 0.25, depth: 0.2, x: 1.4, y: 0.125, z: 2.4 });
+    this.scene.add(diningStool3Mesh.mesh);
+    this.scene.add(diningStool3Mesh.topMesh);
+
+    // 餐凳4
+    const diningStool4Mesh = new DiningStool({ width: 0.2, height: 0.25, depth: 0.2, x: 1.9, y: 0.125, z: 2.4 });
+    this.scene.add(diningStool4Mesh.mesh);
+    this.scene.add(diningStool4Mesh.topMesh);
+
+    // const diningStoolMaterial = new THREE.MeshStandardMaterial({
+    //   color: 0xffffff,
+    // });
+    // const diningStoolGeometry = new THREE.BoxGeometry(0.2, 0.25, 0.2);
+    // const diningStool1Mesh = new THREE.Mesh(diningStoolGeometry, diningStoolMaterial);
+    // diningStool1Mesh.position.x = 1.4;
+    // diningStool1Mesh.position.y = 0.125;
+    // diningStool1Mesh.position.z = 1.55;
+    // this.scene.add(diningStool1Mesh);
+
+    // const diningStoolTopMaterial = new THREE.MeshStandardMaterial();
+    // const diningStoolTopGeometry = new THREE.BoxGeometry(0.2, 0.01, 0.2);
+    // textureLoader.load('../../../assets/images/dining-table-skin.jpg', (map: any) => {
+    //   map.wrapS = THREE.RepeatWrapping;
+    //   map.wrapT = THREE.RepeatWrapping;
+    //   map.anisotropy = 4;
+    //   map.repeat.set(1, 1);
+    //   diningStoolTopMaterial.map = map;
+    //   diningStoolTopMaterial.needsUpdate = true;
+    // });
+    // const diningStoolTop1Mesh = new THREE.Mesh(diningStoolTopGeometry, diningStoolTopMaterial);
+    // diningStoolTop1Mesh.position.x = 1.4;
+    // diningStoolTop1Mesh.position.y = 0.26;
+    // diningStoolTop1Mesh.position.z = 1.55;
+    // this.scene.add(diningStoolTop1Mesh);
+    // // 餐凳2
+    // const diningStool2Mesh = new THREE.Mesh(diningStoolGeometry, diningStoolMaterial);
+    // diningStool2Mesh.position.x = 1.9;
+    // diningStool2Mesh.position.y = 0.125;
+    // diningStool2Mesh.position.z = 1.55;
+    // this.scene.add(diningStool2Mesh);
+
+    // const diningStoolTop2Mesh = new THREE.Mesh(diningStoolTopGeometry, diningStoolTopMaterial);
+    // diningStoolTop2Mesh.position.x = 1.9;
+    // diningStoolTop2Mesh.position.y = 0.26;
+    // diningStoolTop2Mesh.position.z = 1.55;
+    // this.scene.add(diningStoolTop2Mesh);    
     // TODO 餐桌、玄关、厨房、卧室等
   }
 
