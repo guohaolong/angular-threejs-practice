@@ -400,44 +400,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(diningStool4Mesh.mesh);
     this.scene.add(diningStool4Mesh.topMesh);
 
-    // const diningStoolMaterial = new THREE.MeshStandardMaterial({
-    //   color: 0xffffff,
-    // });
-    // const diningStoolGeometry = new THREE.BoxGeometry(0.2, 0.25, 0.2);
-    // const diningStool1Mesh = new THREE.Mesh(diningStoolGeometry, diningStoolMaterial);
-    // diningStool1Mesh.position.x = 1.4;
-    // diningStool1Mesh.position.y = 0.125;
-    // diningStool1Mesh.position.z = 1.55;
-    // this.scene.add(diningStool1Mesh);
-
-    // const diningStoolTopMaterial = new THREE.MeshStandardMaterial();
-    // const diningStoolTopGeometry = new THREE.BoxGeometry(0.2, 0.01, 0.2);
-    // textureLoader.load('../../../assets/images/dining-table-skin.jpg', (map: any) => {
-    //   map.wrapS = THREE.RepeatWrapping;
-    //   map.wrapT = THREE.RepeatWrapping;
-    //   map.anisotropy = 4;
-    //   map.repeat.set(1, 1);
-    //   diningStoolTopMaterial.map = map;
-    //   diningStoolTopMaterial.needsUpdate = true;
-    // });
-    // const diningStoolTop1Mesh = new THREE.Mesh(diningStoolTopGeometry, diningStoolTopMaterial);
-    // diningStoolTop1Mesh.position.x = 1.4;
-    // diningStoolTop1Mesh.position.y = 0.26;
-    // diningStoolTop1Mesh.position.z = 1.55;
-    // this.scene.add(diningStoolTop1Mesh);
-    // // 餐凳2
-    // const diningStool2Mesh = new THREE.Mesh(diningStoolGeometry, diningStoolMaterial);
-    // diningStool2Mesh.position.x = 1.9;
-    // diningStool2Mesh.position.y = 0.125;
-    // diningStool2Mesh.position.z = 1.55;
-    // this.scene.add(diningStool2Mesh);
-
-    // const diningStoolTop2Mesh = new THREE.Mesh(diningStoolTopGeometry, diningStoolTopMaterial);
-    // diningStoolTop2Mesh.position.x = 1.9;
-    // diningStoolTop2Mesh.position.y = 0.26;
-    // diningStoolTop2Mesh.position.z = 1.55;
-    // this.scene.add(diningStoolTop2Mesh);    
-    // TODO 餐桌、玄关、厨房、卧室等
+    // TODO 玄关、厨房、卧室等
   }
 
   render(): void {
