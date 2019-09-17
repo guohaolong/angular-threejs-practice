@@ -352,7 +352,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     fridgeeDoorMesh.position.y = 0.4;
     fridgeeDoorMesh.position.z = 1;
     this.scene.add(fridgeeDoorMesh);
-    
+
     // 餐桌
     const diningTableMaterial = new THREE.MeshStandardMaterial({
       color: 0xffffff,
@@ -381,24 +381,20 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(diningTableTopMesh);
 
     // 餐凳1
-    const diningStool1Mesh = new DiningStool({ width: 0.2, height: 0.25, depth: 0.2, x: 1.4, y: 0.125, z: 1.6 });
+    const diningStool1Mesh = new DiningStool({ x: 1.4, y: 0.125, z: 1.6 });
     this.scene.add(diningStool1Mesh.mesh);
-    this.scene.add(diningStool1Mesh.topMesh);
 
     // 餐凳2
-    const diningStool2Mesh = new DiningStool({ width: 0.2, height: 0.25, depth: 0.2, x: 1.9, y: 0.125, z: 1.6 });
+    const diningStool2Mesh = new DiningStool({ x: 1.9, y: 0.125, z: 1.6 });
     this.scene.add(diningStool2Mesh.mesh);
-    this.scene.add(diningStool2Mesh.topMesh);
 
     // 餐凳3
-    const diningStool3Mesh = new DiningStool({ width: 0.2, height: 0.25, depth: 0.2, x: 1.4, y: 0.125, z: 2.4 });
+    const diningStool3Mesh = new DiningStool({ x: 1.4, y: 0.125, z: 2.4 });
     this.scene.add(diningStool3Mesh.mesh);
-    this.scene.add(diningStool3Mesh.topMesh);
 
     // 餐凳4
-    const diningStool4Mesh = new DiningStool({ width: 0.2, height: 0.25, depth: 0.2, x: 1.9, y: 0.125, z: 2.4 });
+    const diningStool4Mesh = new DiningStool({ x: 1.9, y: 0.125, z: 2.4 });
     this.scene.add(diningStool4Mesh.mesh);
-    this.scene.add(diningStool4Mesh.topMesh);
 
     // TODO 玄关、厨房、卧室等
   }
