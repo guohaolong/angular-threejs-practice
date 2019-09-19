@@ -18,7 +18,7 @@ export class DiningStool {
 
         const diningStoolTopMaterial = new THREE.MeshStandardMaterial();
         const diningStoolTopGeometry = new THREE.BoxGeometry(width, 0.01, depth);
-        textureLoader.load('../../assets/images/dining-stool-skin.jpg', (map: any) => {
+        textureLoader.load('./assets/images/dining-stool-skin.jpg', (map: any) => {
             map.wrapS = THREE.RepeatWrapping;
             map.wrapT = THREE.RepeatWrapping;
             map.anisotropy = 4;

@@ -100,7 +100,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
       metalness: 0.2,
       bumpScale: 0.0005
     });
-    textureLoader.load('../../../assets/images/wood-floor.jpg', (map: any) => {
+    textureLoader.load('./assets/images/wood-floor.jpg', (map: any) => {
       map.wrapS = THREE.RepeatWrapping;
       map.wrapT = THREE.RepeatWrapping;
       map.repeat.set(8, 8);
@@ -213,7 +213,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     // 电视
     const tvMaterial = new THREE.MeshStandardMaterial();
     const tvGeometry = new THREE.PlaneGeometry(1, 0.5);
-    textureLoader.load('../../../assets/images/tv.png', (map: any) => {
+    textureLoader.load('./assets/images/tv.png', (map: any) => {
       map.wrapS = THREE.RepeatWrapping;
       map.wrapT = THREE.RepeatWrapping;
       map.anisotropy = 4;
@@ -264,7 +264,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     // 照片
     const photoMaterial = new THREE.MeshStandardMaterial();
     const photoGeometry = new THREE.PlaneGeometry(0.3, 0.2);
-    textureLoader.load('../../../assets/images/baby.png', (map: any) => {
+    textureLoader.load('./assets/images/baby.png', (map: any) => {
       map.wrapS = THREE.RepeatWrapping;
       map.wrapT = THREE.RepeatWrapping;
       map.anisotropy = 4;
@@ -281,7 +281,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     // 空调
     const acMaterial = new THREE.MeshLambertMaterial();
     const acGeometry = new THREE.CylinderGeometry(0.1, 0.1, 0.8, 50);
-    textureLoader.load('../../../assets/images/ac.png', (map: any) => {
+    textureLoader.load('./assets/images/ac.png', (map: any) => {
       map.wrapS = THREE.RepeatWrapping;
       map.wrapT = THREE.ClampToEdgeWrapping;
       map.anisotropy = 4;
@@ -302,7 +302,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
       opacity: 0.8
     });
     const teaTableGeometry = new THREE.BoxGeometry(0.6, 0.2, 1.2);
-    textureLoader.load('../../../assets/images/tea-table-skin.png', (map: any) => {
+    textureLoader.load('./assets/images/tea-table-skin.png', (map: any) => {
       map.wrapS = THREE.RepeatWrapping;
       map.wrapT = THREE.ClampToEdgeWrapping;
       map.anisotropy = 4;
@@ -340,7 +340,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
 
     const fridgeDoorMaterial = new THREE.MeshLambertMaterial();
     const fridgeeDoorGeometry = new THREE.PlaneGeometry(0.4, 0.8);
-    textureLoader.load('../../../assets/images/fridge.png', (map: any) => {
+    textureLoader.load('./assets/images/fridge.png', (map: any) => {
       map.anisotropy = 4;
       map.repeat.set(1, 1);
       fridgeDoorMaterial.map = map;
@@ -366,7 +366,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
 
     const diningTableTopMaterial = new THREE.MeshStandardMaterial();
     const diningTableTopGeometry = new THREE.BoxGeometry(1, 0.01, 0.5);
-    textureLoader.load('../../../assets/images/dining-table-skin.jpg', (map: any) => {
+    textureLoader.load('./assets/images/dining-table-skin.jpg', (map: any) => {
       map.wrapS = THREE.RepeatWrapping;
       map.wrapT = THREE.RepeatWrapping;
       map.anisotropy = 4;
