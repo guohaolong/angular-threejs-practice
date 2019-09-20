@@ -6,6 +6,7 @@ import { Wall } from 'src/app/objects/wall';
 import { DiningStool } from 'src/app/objects/dining-stool';
 import { Sofa } from 'src/app/objects/sofa';
 import { Fridge } from './../../objects/fridge';
+import { Entranceway } from 'src/app/objects/entranceway';
 
 @Component({
   selector: 'app-house-view',
@@ -355,7 +356,11 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     const diningStool4 = new DiningStool({ x: 1.9, y: 0.125, z: 2.4 });
     this.scene.add(diningStool4.mesh);
 
-    // TODO 玄关、厨房、卧室等
+    // 玄关
+    const entranceway = new Entranceway({ x: 4.75, y: 0.5, z: 0 });
+    this.scene.add(entranceway.mesh);
+
+    // TODO 厨房、卧室等
   }
 
   render(): void {
