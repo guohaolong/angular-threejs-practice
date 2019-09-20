@@ -4,6 +4,8 @@ import * as OrbitControls from 'three-orbitcontrols';
 import * as Stats from 'stats-js';
 import { Wall } from 'src/app/objects/wall';
 import { DiningStool } from 'src/app/objects/dining-stool';
+import { Sofa } from 'src/app/objects/sofa';
+import { Fridge } from './../../objects/fridge';
 
 @Component({
   selector: 'app-house-view',
@@ -148,45 +150,24 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(kitchenRightWall.mesh);
 
     // 客厅与卧室墙1
-    const livingAndBedRoomWall1 = new Wall({ width: 0.1, height: 1, depth: 3, x: 1, y: 0.5, z: 2 });
+    const livingAndBedRoomWall1 = new Wall({ width: 0.1, height: 1, depth: 3.25, x: 1, y: 0.5, z: 1.875 });
     this.scene.add(livingAndBedRoomWall1.mesh);
 
     // 客厅与卧室墙2
-    const livingAndBedRoomWall2 = new Wall({ width: 0.1, height: 1, depth: 3.5, x: 1, y: 0.5, z: -3.25 });
+    const livingAndBedRoomWall2 = new Wall({ width: 0.1, height: 1, depth: 3.75, x: 1, y: 0.5, z: -3.125 });
     this.scene.add(livingAndBedRoomWall2.mesh);
 
     // 卫生间与卧室墙1
-    const toiletAndBedRoomWall1 = new Wall({ width: 5, height: 1, depth: 0.1, x: -2.5, y: 0.5, z: -1.5 });
+    const toiletAndBedRoomWall1 = new Wall({ width: 5, height: 1, depth: 0.1, x: -2.5, y: 0.5, z: -1.25 });
     this.scene.add(toiletAndBedRoomWall1.mesh);
 
     // 卫生间与卧室墙2
-    const toiletAndBedRoomWall2 = new Wall({ width: 5, height: 1, depth: 0.1, x: -2.5, y: 0.5, z: 0.5 });
+    const toiletAndBedRoomWall2 = new Wall({ width: 5, height: 1, depth: 0.1, x: -2.5, y: 0.5, z: 0.25 });
     this.scene.add(toiletAndBedRoomWall2.mesh);
 
-    // 沙发1
-    const sofaMaterial = new THREE.MeshStandardMaterial({
-      color: 0xff9933,
-    });
-    const sofaGeometry1 = new THREE.BoxGeometry(0.5, 0.2, 0.5);
-    const sofaMesh1 = new THREE.Mesh(sofaGeometry1, sofaMaterial);
-    sofaMesh1.position.x = 4;
-    sofaMesh1.position.y = 0.1;
-    sofaMesh1.position.z = -3.75;
-    this.scene.add(sofaMesh1);
-    // 沙发2
-    const sofaGeometry2 = new THREE.BoxGeometry(1, 0.2, 1.25);
-    const sofaMesh2 = new THREE.Mesh(sofaGeometry2, sofaMaterial);
-    sofaMesh2.position.x = 4.5;
-    sofaMesh2.position.y = 0.1;
-    sofaMesh2.position.z = -2.875;
-    this.scene.add(sofaMesh2);
-    // 沙发3
-    const sofaGeometry3 = new THREE.BoxGeometry(1.25, 0.2, 0.5);
-    const sofaMesh3 = new THREE.Mesh(sofaGeometry3, sofaMaterial);
-    sofaMesh3.position.x = 4.375;
-    sofaMesh3.position.y = 0.1;
-    sofaMesh3.position.z = -2;
-    this.scene.add(sofaMesh3);
+    // 沙发
+    const sofa = new Sofa({ x: 4.5, y: 0.1, z: -2.5 });
+    this.scene.add(sofa.mesh);
 
     // 电视柜
     const tvCabinetMaterial = new THREE.MeshStandardMaterial({
@@ -313,7 +294,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     const teaTableMesh = new THREE.Mesh(teaTableGeometry, teaTableMaterial);
     teaTableMesh.position.x = 3.25;
     teaTableMesh.position.y = 0.1;
-    teaTableMesh.position.z = -2.8;
+    teaTableMesh.position.z = -2.6;
     this.scene.add(teaTableMesh);
 
     // 餐厅背景墙
@@ -328,30 +309,8 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(diningBgMesh);
 
     // 冰箱
-    const fridgeMaterial = new THREE.MeshStandardMaterial({
-      color: 0xbcbdc2,
-    });
-    const fridgeGeometry = new THREE.BoxGeometry(0.4, 0.8, 0.4);
-    const fridgeMesh = new THREE.Mesh(fridgeGeometry, fridgeMaterial);
-    fridgeMesh.position.x = 4.6;
-    fridgeMesh.position.y = 0.4;
-    fridgeMesh.position.z = 1;
-    this.scene.add(fridgeMesh);
-
-    const fridgeDoorMaterial = new THREE.MeshLambertMaterial();
-    const fridgeeDoorGeometry = new THREE.PlaneGeometry(0.4, 0.8);
-    textureLoader.load('./assets/images/fridge.png', (map: any) => {
-      map.anisotropy = 4;
-      map.repeat.set(1, 1);
-      fridgeDoorMaterial.map = map;
-      fridgeDoorMaterial.needsUpdate = true;
-    });
-    const fridgeeDoorMesh = new THREE.Mesh(fridgeeDoorGeometry, fridgeDoorMaterial);
-    fridgeeDoorMesh.rotation.y = -Math.PI / 2;
-    fridgeeDoorMesh.position.x = 4.39;
-    fridgeeDoorMesh.position.y = 0.4;
-    fridgeeDoorMesh.position.z = 1;
-    this.scene.add(fridgeeDoorMesh);
+    const fridge = new Fridge({ x: 4.6, y: 0.4, z: 0.5 });
+    this.scene.add(fridge.mesh);
 
     // 餐桌
     const diningTableMaterial = new THREE.MeshStandardMaterial({
@@ -381,20 +340,20 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(diningTableTopMesh);
 
     // 餐凳1
-    const diningStool1Mesh = new DiningStool({ x: 1.4, y: 0.125, z: 1.6 });
-    this.scene.add(diningStool1Mesh.mesh);
+    const diningStool1 = new DiningStool({ x: 1.4, y: 0.125, z: 1.6 });
+    this.scene.add(diningStool1.mesh);
 
     // 餐凳2
-    const diningStool2Mesh = new DiningStool({ x: 1.9, y: 0.125, z: 1.6 });
-    this.scene.add(diningStool2Mesh.mesh);
+    const diningStool2 = new DiningStool({ x: 1.9, y: 0.125, z: 1.6 });
+    this.scene.add(diningStool2.mesh);
 
     // 餐凳3
-    const diningStool3Mesh = new DiningStool({ x: 1.4, y: 0.125, z: 2.4 });
-    this.scene.add(diningStool3Mesh.mesh);
+    const diningStool3 = new DiningStool({ x: 1.4, y: 0.125, z: 2.4 });
+    this.scene.add(diningStool3.mesh);
 
     // 餐凳4
-    const diningStool4Mesh = new DiningStool({ x: 1.9, y: 0.125, z: 2.4 });
-    this.scene.add(diningStool4Mesh.mesh);
+    const diningStool4 = new DiningStool({ x: 1.9, y: 0.125, z: 2.4 });
+    this.scene.add(diningStool4.mesh);
 
     // TODO 玄关、厨房、卧室等
   }
