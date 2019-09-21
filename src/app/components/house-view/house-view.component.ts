@@ -2,11 +2,12 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import * as THREE from 'three';
 import * as OrbitControls from 'three-orbitcontrols';
 import * as Stats from 'stats-js';
-import { Wall } from 'src/app/objects/wall';
 import { DiningStool } from 'src/app/objects/dining-stool';
 import { Sofa } from 'src/app/objects/sofa';
 import { Fridge } from './../../objects/fridge';
 import { Entranceway } from 'src/app/objects/entranceway';
+import { Floor } from 'src/app/objects/floor';
+import { RoomWall } from 'src/app/objects/room-wall';
 
 @Component({
   selector: 'app-house-view',
@@ -97,74 +98,12 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     const textureLoader = new THREE.TextureLoader();
 
     // 地板
-    const floorMaterial = new THREE.MeshStandardMaterial({
-      roughness: 0.8,
-      color: 0xffffff,
-      metalness: 0.2,
-      bumpScale: 0.0005
-    });
-    textureLoader.load('./assets/images/wood-floor.jpg', (map: any) => {
-      map.wrapS = THREE.RepeatWrapping;
-      map.wrapT = THREE.RepeatWrapping;
-      map.repeat.set(8, 8);
-      map.anisotropy = 2;
-      floorMaterial.map = map;
-      floorMaterial.needsUpdate = true;
-    });
-    const floorGeometry = new THREE.PlaneBufferGeometry(10, 10);
-    const flooMesh = new THREE.Mesh(floorGeometry, floorMaterial);
-    flooMesh.receiveShadow = true;
-    flooMesh.rotation.x = -Math.PI / 2.0;
+    const floor = new Floor();
+    this.scene.add(floor.mesh);
 
-    this.scene.add(flooMesh);
-
-    // 左围墙
-    const leftWall = new Wall({ width: 0.1, height: 1, depth: 10, x: -5, y: 0.5, z: 0 });
-    this.scene.add(leftWall.mesh);
-
-    // 右围墙
-    const rightWall = new Wall({ width: 0.1, height: 1, depth: 10, x: 5, y: 0.5, z: 0 });
-    this.scene.add(rightWall.mesh);
-
-    // 前围墙
-    const frontWall = new Wall({ width: 6.75, height: 1, depth: 0.1, x: -1.625, y: 0.5, z: 5 });
-    this.scene.add(frontWall.mesh);
-
-    // 后围墙
-    const backWall = new Wall({ width: 10, height: 1, depth: 0.1, x: 0, y: 0.5, z: -5 });
-    this.scene.add(backWall.mesh);
-
-    // 厨房与卧室
-    const kitchenAndBedRoomWall = new Wall({ width: 6, height: 1, depth: 0.1, x: -2, y: 0.5, z: 3.5 });
-    this.scene.add(kitchenAndBedRoomWall.mesh);
-
-    // 客厅前围墙1
-    const livingRoomFrontWall = new Wall({ width: 2, height: 1, depth: 0.1, x: 2.75, y: 0.5, z: 3.5 });
-    this.scene.add(livingRoomFrontWall.mesh);
-
-    // 客厅前围墙2
-    const livingRoomFrontWall2 = new Wall({ width: 0.5, height: 1, depth: 0.1, x: 4.75, y: 0.5, z: 3.5 });
-    this.scene.add(livingRoomFrontWall2.mesh);
-
-    // 厨房右侧围墙
-    const kitchenRightWall = new Wall({ width: 0.1, height: 1, depth: 1.5, x: 1.75, y: 0.5, z: 4.25 });
-    this.scene.add(kitchenRightWall.mesh);
-
-    // 客厅与卧室墙1
-    const livingAndBedRoomWall1 = new Wall({ width: 0.1, height: 1, depth: 3.25, x: 1, y: 0.5, z: 1.875 });
-    this.scene.add(livingAndBedRoomWall1.mesh);
-
-    // 客厅与卧室墙2
-    const livingAndBedRoomWall2 = new Wall({ width: 0.1, height: 1, depth: 3.75, x: 1, y: 0.5, z: -3.125 });
-    this.scene.add(livingAndBedRoomWall2.mesh);
-
-    // 卫生间与卧室墙1
-    const toiletAndBedRoomWall1 = new Wall({ width: 5, height: 1, depth: 0.1, x: -2.5, y: 0.5, z: -1.25 });
-    this.scene.add(toiletAndBedRoomWall1.mesh);
-
-    // 卫生间与卧室墙2
-    const toiletAndBedRoomWall2 = new Wall({ width: 5, height: 1, depth: 0.1, x: -2.5, y: 0.5, z: 0.25 });
-    this.scene.add(toiletAndBedRoomWall2.mesh);
+    // 房间围墙
+    const walls = new RoomWall();
+    this.scene.add(walls.mesh);
 
     // 沙发
     const sofa = new Sofa({ x: 4.5, y: 0.1, z: -2.5 });
