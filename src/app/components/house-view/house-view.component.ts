@@ -8,6 +8,7 @@ import { Entranceway } from 'src/app/objects/entranceway';
 import { Floor } from 'src/app/objects/floor';
 import { RoomWall } from 'src/app/objects/room-wall';
 import { DiningTableStool } from 'src/app/objects/dining-table-stool';
+import { Wardrobe } from 'src/app/objects/wardrobe';
 
 @Component({
   selector: 'app-house-view',
@@ -259,6 +260,12 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     // 玄关
     const entranceway = new Entranceway({ x: 4.55, y: 0.5, z: 0 });
     this.scene.add(entranceway.mesh);
+
+    // 卧室2
+
+    // 衣柜
+    const wardrobe = new Wardrobe({ x: -4.05, y: 0.4, z: 3.2 });
+    this.scene.add(wardrobe.mesh);
 
     // TODO 厨房、卧室等
   }
