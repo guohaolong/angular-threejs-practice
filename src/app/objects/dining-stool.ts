@@ -4,9 +4,9 @@ export class DiningStool {
     mesh = new THREE.Object3D();
 
     constructor(options?: any) {
-        const width = 0.2;
+        const width = 0.25;
         const height = 0.25;
-        const depth = 0.2;
+        const depth = 0.25;
 
         const textureLoader = new THREE.TextureLoader();
         const diningStoolMaterial = new THREE.MeshStandardMaterial({

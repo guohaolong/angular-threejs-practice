@@ -11,12 +11,12 @@ export class DiningTableStool {
         const diningTableMaterial = new THREE.MeshStandardMaterial({
             color: 0xffffff,
         });
-        const diningTableGeometry = new THREE.BoxGeometry(1, 0.4, 0.5);
+        const diningTableGeometry = new THREE.BoxGeometry(1.5, 0.4, 0.75);
         const diningTableMesh = new THREE.Mesh(diningTableGeometry, diningTableMaterial);
         this.mesh.add(diningTableMesh);
 
         const diningTableTopMaterial = new THREE.MeshStandardMaterial();
-        const diningTableTopGeometry = new THREE.BoxGeometry(1, 0.01, 0.5);
+        const diningTableTopGeometry = new THREE.BoxGeometry(1.5, 0.01, 0.75);
         textureLoader.load('./assets/images/dining-table-skin.jpg', (map: any) => {
             map.wrapS = THREE.RepeatWrapping;
             map.wrapT = THREE.RepeatWrapping;
@@ -30,19 +30,19 @@ export class DiningTableStool {
         this.mesh.add(diningTableTopMesh);
 
         // 餐凳1
-        const diningStool1 = new DiningStool({ x: -0.25, y: -0.075, z: -0.4 });
+        const diningStool1 = new DiningStool({ x: -0.35, y: -0.075, z: -0.6 });
         this.mesh.add(diningStool1.mesh);
 
         // 餐凳2
-        const diningStool2 = new DiningStool({ x: 0.25, y: -0.075, z: -0.4 });
+        const diningStool2 = new DiningStool({ x: 0.35, y: -0.075, z: -0.6 });
         this.mesh.add(diningStool2.mesh);
 
         // 餐凳3
-        const diningStool3 = new DiningStool({ x: -0.25, y: -0.075, z: 0.4 });
+        const diningStool3 = new DiningStool({ x: -0.35, y: -0.075, z: 0.6 });
         this.mesh.add(diningStool3.mesh);
 
         // 餐凳4
-        const diningStool4 = new DiningStool({ x: 0.25, y: -0.075, z: 0.4 });
+        const diningStool4 = new DiningStool({ x: 0.35, y: -0.075, z: 0.6 });
         this.mesh.add(diningStool4.mesh);
 
         if (options) {

@@ -241,7 +241,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     const diningBgMaterial = new THREE.MeshStandardMaterial({
       color: 0xf68e5d,
     });
-    const diningBgGeometry = new THREE.BoxGeometry(0.1, 1, 1);
+    const diningBgGeometry = new THREE.BoxGeometry(0.1, 1, 1.5);
     const diningBgMesh = new THREE.Mesh(diningBgGeometry, diningBgMaterial);
     diningBgMesh.position.x = 0.1;
     diningBgMesh.position.y = 0.5;
@@ -253,7 +253,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(fridge.mesh);
 
     // 餐桌/凳
-    const diningTableStool = new DiningTableStool({ x: 0.75, y: 0.2, z: 2 });
+    const diningTableStool = new DiningTableStool({ x: 1, y: 0.2, z: 2 });
     this.scene.add(diningTableStool.mesh);
 
     // 玄关
