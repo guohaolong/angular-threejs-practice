@@ -249,7 +249,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(diningBgMesh);
 
     // 冰箱
-    const fridge = new Fridge({ x: 4.6, y: 0.4, z: 0.5 });
+    const fridge = new Fridge({ x: 4.5, y: 0.4, z: 0.5 });
     this.scene.add(fridge.mesh);
 
     // 餐桌/凳
@@ -257,7 +257,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(diningTableStool.mesh);
 
     // 玄关
-    const entranceway = new Entranceway({ x: 4.75, y: 0.5, z: 0 });
+    const entranceway = new Entranceway({ x: 4.55, y: 0.5, z: 0 });
     this.scene.add(entranceway.mesh);
 
     // TODO 厨房、卧室等

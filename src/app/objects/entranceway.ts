@@ -15,13 +15,13 @@ export class Entranceway {
         // 纵向
         const entrancewayVGeometry = new THREE.BoxGeometry(0.05, 1, 0.05);
         const entrancewayVMesh1 = new THREE.Mesh(entrancewayVGeometry, entrancewayMaterial);
-        entrancewayVMesh1.position.x = -0.275;
+        entrancewayVMesh1.position.x = -0.375;
         this.mesh.add(entrancewayVMesh1);
         const entrancewayVMesh2 = new THREE.Mesh(entrancewayVGeometry, entrancewayMaterial);
-        entrancewayVMesh2.position.x = 0.275;
+        entrancewayVMesh2.position.x = 0.375;
         this.mesh.add(entrancewayVMesh2);
         // 横向
-        const entrancewayHGeometry = new THREE.BoxGeometry(0.5, 0.02, 0.02);
+        const entrancewayHGeometry = new THREE.BoxGeometry(0.75, 0.02, 0.02);
         const entrancewayHMesh1 = new THREE.Mesh(entrancewayHGeometry, entrancewayMaterial);
         entrancewayHMesh1.position.y = -0.49;
         this.mesh.add(entrancewayHMesh1);
