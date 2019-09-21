@@ -2,12 +2,12 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import * as THREE from 'three';
 import * as OrbitControls from 'three-orbitcontrols';
 import * as Stats from 'stats-js';
-import { DiningStool } from 'src/app/objects/dining-stool';
 import { Sofa } from 'src/app/objects/sofa';
 import { Fridge } from './../../objects/fridge';
 import { Entranceway } from 'src/app/objects/entranceway';
 import { Floor } from 'src/app/objects/floor';
 import { RoomWall } from 'src/app/objects/room-wall';
+import { DiningTableStool } from 'src/app/objects/dining-table-stool';
 
 @Component({
   selector: 'app-house-view',
@@ -252,48 +252,9 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     const fridge = new Fridge({ x: 4.6, y: 0.4, z: 0.5 });
     this.scene.add(fridge.mesh);
 
-    // 餐桌
-    const diningTableMaterial = new THREE.MeshStandardMaterial({
-      color: 0xffffff,
-    });
-    const diningTableGeometry = new THREE.BoxGeometry(1, 0.4, 0.5);
-    const diningTableMesh = new THREE.Mesh(diningTableGeometry, diningTableMaterial);
-    diningTableMesh.position.x = 1.65;
-    diningTableMesh.position.y = 0.2;
-    diningTableMesh.position.z = 2;
-    this.scene.add(diningTableMesh);
-
-    const diningTableTopMaterial = new THREE.MeshStandardMaterial();
-    const diningTableTopGeometry = new THREE.BoxGeometry(1, 0.01, 0.5);
-    textureLoader.load('./assets/images/dining-table-skin.jpg', (map: any) => {
-      map.wrapS = THREE.RepeatWrapping;
-      map.wrapT = THREE.RepeatWrapping;
-      map.anisotropy = 4;
-      map.repeat.set(1, 1);
-      diningTableTopMaterial.map = map;
-      diningTableTopMaterial.needsUpdate = true;
-    });
-    const diningTableTopMesh = new THREE.Mesh(diningTableTopGeometry, diningTableTopMaterial);
-    diningTableTopMesh.position.x = 1.65;
-    diningTableTopMesh.position.y = 0.4;
-    diningTableTopMesh.position.z = 2;
-    this.scene.add(diningTableTopMesh);
-
-    // 餐凳1
-    const diningStool1 = new DiningStool({ x: 1.4, y: 0.125, z: 1.6 });
-    this.scene.add(diningStool1.mesh);
-
-    // 餐凳2
-    const diningStool2 = new DiningStool({ x: 1.9, y: 0.125, z: 1.6 });
-    this.scene.add(diningStool2.mesh);
-
-    // 餐凳3
-    const diningStool3 = new DiningStool({ x: 1.4, y: 0.125, z: 2.4 });
-    this.scene.add(diningStool3.mesh);
-
-    // 餐凳4
-    const diningStool4 = new DiningStool({ x: 1.9, y: 0.125, z: 2.4 });
-    this.scene.add(diningStool4.mesh);
+    // 餐桌/凳
+    const diningTableStool = new DiningTableStool({ x: 1.65, y: 0.2, z: 2 });
+    this.scene.add(diningTableStool.mesh);
 
     // 玄关
     const entranceway = new Entranceway({ x: 4.75, y: 0.5, z: 0 });
