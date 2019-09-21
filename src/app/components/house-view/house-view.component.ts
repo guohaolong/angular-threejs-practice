@@ -115,7 +115,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     });
     const tvCabinetGeometry = new THREE.BoxGeometry(0.5, 0.2, 2.5);
     const tvCabinetMesh = new THREE.Mesh(tvCabinetGeometry, tvCabinetMaterial);
-    tvCabinetMesh.position.x = 1.25;
+    tvCabinetMesh.position.x = 0.3;
     tvCabinetMesh.position.y = 0.1;
     tvCabinetMesh.position.z = -2.75;
     this.scene.add(tvCabinetMesh);
@@ -126,7 +126,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     });
     const tvBgGeometry = new THREE.BoxGeometry(0.1, 0.8, 2.5);
     const tvBgMesh = new THREE.Mesh(tvBgGeometry, tvBgMaterial);
-    tvBgMesh.position.x = 1.1;
+    tvBgMesh.position.x = 0.1;
     tvBgMesh.position.y = 0.6;
     tvBgMesh.position.z = -2.75;
     this.scene.add(tvBgMesh);
@@ -144,7 +144,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     });
     const tvMesh = new THREE.Mesh(tvGeometry, tvMaterial);
     tvMesh.rotation.y = Math.PI / 2.0;
-    tvMesh.position.x = 1.175;
+    tvMesh.position.x = 0.175;
     tvMesh.position.y = 0.6;
     tvMesh.position.z = -2.75;
     this.scene.add(tvMesh);
@@ -243,7 +243,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     });
     const diningBgGeometry = new THREE.BoxGeometry(0.1, 1, 1);
     const diningBgMesh = new THREE.Mesh(diningBgGeometry, diningBgMaterial);
-    diningBgMesh.position.x = 1.1;
+    diningBgMesh.position.x = 0.1;
     diningBgMesh.position.y = 0.5;
     diningBgMesh.position.z = 2;
     this.scene.add(diningBgMesh);
@@ -253,7 +253,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(fridge.mesh);
 
     // 餐桌/凳
-    const diningTableStool = new DiningTableStool({ x: 1.65, y: 0.2, z: 2 });
+    const diningTableStool = new DiningTableStool({ x: 0.75, y: 0.2, z: 2 });
     this.scene.add(diningTableStool.mesh);
 
     // 玄关
