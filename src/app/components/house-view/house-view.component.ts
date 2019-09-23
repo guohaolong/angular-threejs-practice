@@ -107,7 +107,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(walls.mesh);
 
     // 沙发
-    const sofa = new Sofa({ x: 4.5, y: 0.1, z: -2.5 });
+    const sofa = new Sofa({ x: 4.45, y: 0, z: -2.35 });
     this.scene.add(sofa.mesh);
 
     // 电视柜
@@ -176,9 +176,9 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     const balconyMaterial = new THREE.MeshLambertMaterial({
       color: 0xffffff,
     });
-    const balconyWallGeometry = new THREE.BoxGeometry(1.25, 1, 0.1);
+    const balconyWallGeometry = new THREE.BoxGeometry(1.3, 1, 0.1);
     const balconyWallMesh = new THREE.Mesh(balconyWallGeometry, balconyMaterial);
-    balconyWallMesh.position.x = 4.375;
+    balconyWallMesh.position.x = 4.35;
     balconyWallMesh.position.y = 0.5;
     balconyWallMesh.position.z = -4;
     this.scene.add(balconyWallMesh);
@@ -196,7 +196,7 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     });
     const photoMesh = new THREE.Mesh(photoGeometry, photoMaterial);
     photoMesh.position.x = 4;
-    photoMesh.position.y = 0.6;
+    photoMesh.position.y = 0.8;
     photoMesh.position.z = -3.9;
     this.scene.add(photoMesh);
 
