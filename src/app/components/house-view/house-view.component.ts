@@ -9,6 +9,7 @@ import { Floor } from 'src/app/objects/floor';
 import { RoomWall } from 'src/app/objects/room-wall';
 import { DiningTableStool } from 'src/app/objects/dining-table-stool';
 import { Wardrobe } from 'src/app/objects/wardrobe';
+import { TeaTable } from 'src/app/objects/tea-table';
 
 @Component({
   selector: 'app-house-view',
@@ -219,24 +220,8 @@ export class HouseViewComponent implements OnInit, AfterViewInit {
     this.scene.add(acMesh);
 
     // 茶几
-    const teaTableMaterial = new THREE.MeshLambertMaterial({
-      transparent: true,
-      opacity: 0.8
-    });
-    const teaTableGeometry = new THREE.BoxGeometry(0.6, 0.2, 1.2);
-    textureLoader.load('./assets/images/tea-table-skin.png', (map: any) => {
-      map.wrapS = THREE.RepeatWrapping;
-      map.wrapT = THREE.ClampToEdgeWrapping;
-      map.anisotropy = 4;
-      map.repeat.set(1, 1);
-      teaTableMaterial.map = map;
-      teaTableMaterial.needsUpdate = true;
-    });
-    const teaTableMesh = new THREE.Mesh(teaTableGeometry, teaTableMaterial);
-    teaTableMesh.position.x = 3.25;
-    teaTableMesh.position.y = 0.1;
-    teaTableMesh.position.z = -2.6;
-    this.scene.add(teaTableMesh);
+    const teaTable = new TeaTable({ x: 3.5, y: 0, z: -2.5 });
+    this.scene.add(teaTable.mesh);
 
     // 餐厅背景墙
     const diningBgMaterial = new THREE.MeshStandardMaterial({
